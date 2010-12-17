@@ -5,7 +5,7 @@ body {
     margin:0;
     font:12px Verdana, Arial, sans-serif;
     font-size:0.75em;
-    background-color: #fff;
+    background-color: #d6d6d6;
 }
 div {margin:0; padding: 0;}
 img {border:0; margin:0; padding: 0;}
@@ -21,6 +21,10 @@ p {margin: 8px 0 8px 0;}
 h1{font-size: 1.55em;}
 h2{font-size: 1.45em;}
 h3{font-size: 1.3em;}
+h1, h2, h3{
+    margin: 0;
+    padding: 10px 0 10px 0;
+}
 
 label {
     display: block;
@@ -55,7 +59,7 @@ label {
     min-height: 400px;
 }
 .main-content-inner {
-    padding: 0 20px 0 16px;
+    padding: 20px 80px 0 80px;
 }
 
 .header {
@@ -68,6 +72,19 @@ label {
     height: 150px;
 }
 
+.language-selection{
+    text-align: right;
+    padding: 5px 68px 0 0;
+    font-weight: bold;
+    color: #fff;
+}
+
+.language-selection a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+}
+
 .header .inner {
     padding: 0 10px;
 }
@@ -76,9 +93,9 @@ label {
 }
 
 .navi {
+    margin: 0 60px;
     height: 30px;
     background: url(/public/images/background_navi.png);
-    background: red;
     xbackground-repeat: no-repeat;
 }
 .navi ul {
@@ -92,15 +109,15 @@ label {
     list-style-type: none;
     xxxmargin: 3px 15px 0 15px;
     margin: 0;
-    padding: 7px 15px 0 15px;
+    padding: 6px 15px 0 15px;
     xxxbackground: url(/public/images/background_navi.png);
-    height: 23px; /* 30 - 7 */
+    height: 24px; /* 30 - 6 */
     cursor: pointer;
 }
 .navi ul li a {
     color: #333;
     text-decoration: none;
-    font-size: 1.15em;
+    font-size: 1.12em;
 }
 .navi ul li.active {
     xxxbackground: url(/public/images/background_navi_active.gif);
@@ -140,8 +157,8 @@ label {
 .footer {
     min-width: 1024px;
     height: 98px;
-    background: url(/public/images/footer.gif);
-    background-position: center;
+    xxxbackground: url(/public/images/footer.gif);
+    xxxxbackground-position: center;
     background-repeat: repeat-x;
     text-align: center;
     margin-bottom: 25px;

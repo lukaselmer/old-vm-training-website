@@ -30,28 +30,30 @@
         <div class="base-outer">
             <div class="base-inner">
                 <div class="header">
-                    <div class="header-top">Deutsch | English</div>
+                    <div class="header-top">
+                        <div class="language-selection"><a href="#">Deutsch</a> | <a href="#">English</a></div>
+                    </div>
                     <div class="navi-outer"><div class="navi"><ul class="navi-ul">
-                                <li><a href="#">Home</a></li>
-                                <li>Über Uns</li>
-                                <li>Angebot</li>
-                                <li>Location</li>
-                                <li>Refernzen</li>
-                                <li>Kontakt</li>
+                                <? navi_link("Home", 'home') ?>
+                                <? navi_link("Über Uns", 'ueber_uns') ?>
+                                <? navi_link("Angebot", 'angebot') ?>
+                                <? navi_link("Location", 'location') ?>
+                                <? navi_link("Refernzen", 'refernzen') ?>
+                                <? navi_link("Kontakt", 'kontakt') ?>
                             </ul>
                             <? clearer(); ?>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="main-content">
-                    <? global $title, $content; ?>
-                            <div>
-                                <h1><? echo $title; ?></h1>
+                    <div class="main-content">
+                        <div class="main-content-inner">
+                        <? global $title, $content; ?>
+                        <? clearer(); ?>
+                                <div><h1><? echo $title; ?></h1></div>
                                 <div><? echo $content; ?></div>
                     </div>
                 </div>
             </div>
-
             <div class="footer">
                 <div class="inner">
                     <div class="inner2">

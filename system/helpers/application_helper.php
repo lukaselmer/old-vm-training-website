@@ -24,7 +24,7 @@ function authenticate($entered_username = '', $entered_password = '') {
     return false;
 }
 
-function mouseover_hover(){
+function mouseover_hover() {
     echo ' onmouseover="$(this).addClassName(\'hover\'); return false;" onmouseout="$(this).removeClassName(\'hover\'); return false;"
         onclick="location.href=$(this).down(); return false;"';
 }
@@ -52,7 +52,7 @@ function active_class_for_navi($controller, $action = 'index', $url_params=Array
 
     $req_contr = $_REQUEST['controller'];
     $req_action = $_REQUEST['action'];
-    if(!$req_contr || $req_contr == ""){
+    if (!$req_contr || $req_contr == "") {
         $req_contr = "home";
         $req_action = "index";
     }
@@ -116,7 +116,11 @@ function url_for($controller, $action = 'index', $url_params=Array()) {
     if (!$action || $action == "") {
         $action = $_REQUEST['action'];
     }
-    $url = "/?controller=$controller&action=$action";
+    $url = "/?action=$action&ln=" . $_REQUEST['ln'] . "";
+    if ($controller != '') {
+        $url .= "&controller=$controller";
+    }
+
     if (sizeof($url_params) > 0) {
         foreach ($url_params as $key => $value) {
             $url .= '&' . $key . '=' . $value;
@@ -128,6 +132,10 @@ function url_for($controller, $action = 'index', $url_params=Array()) {
 function redirect_to($controller, $action = 'index', $url_params=Array()) {
     header("Location: " . url_for($controller, $action, $url_params));
     exit;
+}
+
+function navi_link($name, $action) {
+    echo '<li onclick="location.href=$(this).down()"><a href="?action=' . $action . '&ln=' . $_REQUEST['ln'] . '">' . $name . '</a></li>';
 }
 
 ?>
