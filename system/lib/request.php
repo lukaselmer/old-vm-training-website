@@ -10,7 +10,7 @@ $action_name = str_replace(" ", "", $action_name);
 $action_name = str_replace(";", "", $action_name);
 $action_name = str_replace(",", "", $action_name);
 $_REQUEST['action'] = $action_name;
-$_REQUEST['ln'] = ($_REQUEST['ln'] == 'en' ? 'en' : ($_REQUEST['ln'] == 'de' ? 'de' : (substr($_SERVER["HTTP_ACCEPT_LANGUAGE"], 0, 2) == 'en') ? 'en' : 'de'));
+$_REQUEST['ln'] = ($_REQUEST['ln'] == 'en' ? 'en' : ($_REQUEST['ln'] == 'de' ? 'de' : (substr($_SERVER["HTTP_ACCEPT_LANGUAGE"], 0, 2) == 'en' ? 'en' : 'de')));
 include('system/helpers/application_helper.php');
 
 ob_start();
