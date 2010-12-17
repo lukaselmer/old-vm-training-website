@@ -35,11 +35,11 @@
                     </div>
                     <div class="navi-outer"><div class="navi"><ul class="navi-ul">
                                 <? navi_link("Home", 'home') ?>
-                                <? navi_link("Über Uns", 'ueber_uns') ?>
-                                <? navi_link("Angebot", 'angebot') ?>
+                                <? navi_link($_REQUEST['ln'] == 'de' ? "Über Uns" : "About Us", 'ueber_uns') ?>
+                                <? navi_link($_REQUEST['ln'] == 'de' ? "Angebot" : "Offer", 'angebot') ?>
                                 <? navi_link("Location", 'location') ?>
-                                <? navi_link("Refernzen", 'refernzen') ?>
-                                <? navi_link("Kontakt", 'kontakt') ?>
+                                <? navi_link($_REQUEST['ln'] == 'de' ? "Refernzen" : "References", 'refernzen') ?>
+                                <? navi_link($_REQUEST['ln'] == 'de' ? "Kontakt": "Contact", 'kontakt') ?>
                             </ul>
                             <? clearer(); ?>
                             </div>
