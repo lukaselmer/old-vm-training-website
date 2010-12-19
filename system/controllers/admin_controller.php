@@ -4,25 +4,26 @@ class AdminController extends ApplicationController {
 
     function before_filter() {
         if ($_SESSION['authenticated'] != true) {
-            if ($_REQUEST['action' != 'login'])
+            if ($_REQUEST['action'] != 'login') {
                 redirect_to('admin', 'login');
+            }
         }
-        $this->cms_contents = $this->DB->select("select * from cms_content order by cms_key ASC");
     }
 
     function login() {
-        if ($_REQUEST['login'] == "1") {
-            
+        if (sizeof($_REQUEST['login']) > 0) {
+            if ($_REQUEST['login'] == "vmtraining" && $_REQUEST['loginp'] == "sport") {
+                $_SESSION['authenticated'] = true;
+                redirect_to('admin', 'index');
+            }
+            $this->error = "Anmeldung fehlgeschlagen";
         } else {
-            echo '<form method="post" action="/?controller=admin&action=login">
-                Login: <input type="text" name="login" /><br/>Passwort: <input type="text" name="loginp" /><br/><input type="submit" />
-                </form>';
+
         }
     }
 
     function index() {
-        $this->events = $this->DB->select("select * from events where deleted=0 order by event_date ASC");
-        //$this->open_event_id = intval($_REQUEST['open']);
+        $this->cms_contents = $this->DB->select("select * from cms_content order by cms_key ASC");
     }
 
     function nnew() {

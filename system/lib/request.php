@@ -18,14 +18,16 @@ include('system/lib/models/db.php');
 if ($_REQUEST['controller'] == 'admin') {
     include('system/controllers/admin_controller.php');
     $controller = new AdminController();
-    $controller->$$action_name;
-}else{
+    global $controller;
+    $controller->$action_name();
+} else {
     global $DB;
     $cms_content = $DB->select_by_attribute("cms_content", "cms_key", $action_name . "_" . $_REQUEST['ln']);
 }
 
 ob_start();
-$template_name = 'system/sites/' . $_REQUEST['ln'] . '/' . $action_name . '.php';
+
+$template_name = 'system/sites/' . (($_REQUEST['controller'] == 'admin') ? "admin" : $_REQUEST['ln']) . '/' . $action_name . '.php';
 if (!@include($template_name)) {
     echo "<h1>Seite nicht gefunden / Page not found</h1><a href=\"/\">Zur Startseite / To the home page</a>";
 }
