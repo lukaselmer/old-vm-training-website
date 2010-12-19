@@ -26,38 +26,8 @@ class AdminController extends ApplicationController {
         $this->cms_contents = $this->DB->select("select * from cms_content order by cms_key ASC");
     }
 
-    function nnew() {
-        $this->event = Array();
-    }
-
-    function create() {
-        $event_params = $_REQUEST['event'];
-        foreach ($event_params as $i => $param) {
-            $event_params[$i] = str_replace('"', '&quot;', $param);
-        }
-        $inserted_id = $this->DB->insert("INSERT INTO `events` (
-`title` ,
-`school_id` ,
-`event_type_id` ,
-`event_date`,
-`time`,
-`place`,
-`hidden`
-)
-VALUES (
-\"" . $event_params['title'] . "\",
-\"" . $event_params['school_id'] . "\",
-\"" . $event_params['event_type_id'] . "\",
-\"" . $event_params['event_date'] . "\",
-\"" . $event_params['time'] . "\",
-\"" . $event_params['place'] . "\",
-\"" . $event_params['hidden'] . "\"
-);");
-        redirect_to('admin', 'index', Array('open' => $inserted_id));
-    }
-
     function edit() {
-        $this->event = $this->DB->select_by_id("events", $_REQUEST['id']);
+        $this->cms_content = $this->DB->select_by_attribute("cms_content", "id", $_REQUEST['id']);
     }
 
     function update() {
@@ -75,12 +45,6 @@ VALUES (
 `hidden` = \"" . $event_params['hidden'] . "\"
 WHERE `id` = " . intval($event_params['id']) . " LIMIT 1 ;
 ");
-        redirect_to('admin');
-    }
-
-    function destroy() {
-        $event_id = $_REQUEST['id'];
-        $this->DB->query("UPDATE `events` SET `deleted` = \"1\" WHERE `id` = " . intval($event_id) . " LIMIT 1;");
         redirect_to('admin');
     }
 
