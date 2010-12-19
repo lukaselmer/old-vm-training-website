@@ -53,6 +53,7 @@
                         <? global $content; ?>
                         <? clearer(); ?>
                                 <div><? echo $content; ?></div>
+                        <div>&nbsp;</div>
                     </div>
                 </div>
             </div>
