@@ -31,29 +31,6 @@ class AdminController extends ApplicationController {
     }
 
     function update() {
-        $event_params = $_REQUEST['event'];
-        foreach ($event_params as $i => $param) {
-            $event_params[$i] = str_replace('"', '&quot;', $param);
-        }
-        $this->DB->query("UPDATE `events` SET
-`title` = \"" . $event_params['title'] . "\",
-`school_id` = \"" . $event_params['school_id'] . "\",
-`event_type_id` = \"" . $event_params['event_type_id'] . "\",
-`event_date` = \"" . $event_params['event_date'] . "\",
-`time` = \"" . $event_params['time'] . "\",
-`place` = \"" . $event_params['place'] . "\",
-`hidden` = \"" . $event_params['hidden'] . "\"
-WHERE `id` = " . intval($event_params['id']) . " LIMIT 1 ;
-");
-        redirect_to('admin');
-    }
-
-    function edit_cms_content() {
-        $key = $_REQUEST['id'];
-        $this->cms_content = $this->DB->select_by_attribute("cms_content", "cms_key", $key);
-    }
-
-    function update_cms_content() {
         $key = $_REQUEST['id'];
         $params = $_REQUEST['cms_content'];
         foreach ($params as $i => $param) {
@@ -64,8 +41,15 @@ WHERE `id` = " . intval($event_params['id']) . " LIMIT 1 ;
 `content` = \"" . $params['content'] . "\"
 WHERE `id` = " . $this->cms_content->id . " LIMIT 1 ;
 ");
-        //redirect_to('admin');
-        redirect_to('home', 'cms_content', Array("id" => $key));
+        if($_REQUEST['redirect_to_action'] != ""){
+            redirect_to("home", $_REQUEST['redirect_to_action']);
+        }
+        redirect_to('admin');
+    }
+
+    function edit_cms_content() {
+        $key = $_REQUEST['id'];
+        $this->cms_content = $this->DB->select_by_attribute("cms_content", "cms_key", $key);
     }
 
     function backup() {

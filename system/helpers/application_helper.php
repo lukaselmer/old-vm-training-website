@@ -1,11 +1,21 @@
 <?php
 
+function cms_content() {
+    global $cms_content;
+    include "system/sites/shared/cms_content.php";
+}
+
 function valid_email($email) {
     if (preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $email)) {
         //list($username,$domain)=split('@',$email);
         return true;
     }
     return false;
+}
+
+function is_authenticated() {
+
+    return $_SESSION['authenticated'] == true;
 }
 
 function authenticate($entered_username = '', $entered_password = '') {
@@ -29,7 +39,7 @@ function mouseover_hover() {
         onclick="location.href=$(this).down(); return false;"';
 }
 
-function link_to($name, $controller, $action = 'index', $url_params=Array(), $html_params=Array(), $print=true) {
+function link_to($name, $controller = '', $action = 'index', $url_params=Array(), $html_params=Array(), $print=true) {
     $url = url_for($controller, $action, $url_params);
     if (sizeof($html_params) > 0) {
         $html_params_str = "";
@@ -108,7 +118,7 @@ function aggregate_url_params($url_params) {
     return $url_params;
 }
 
-function url_for($controller, $action = 'index', $url_params=Array()) {
+function url_for($controller = '', $action = 'index', $url_params=Array()) {
     $url_params = aggregate_url_params($url_params);
     if (!$controller || $controller == "") {
         $controller = $_REQUEST['controller'];
@@ -129,7 +139,7 @@ function url_for($controller, $action = 'index', $url_params=Array()) {
     return $url;
 }
 
-function redirect_to($controller, $action = 'index', $url_params=Array()) {
+function redirect_to($controller = '', $action = 'index', $url_params=Array()) {
     header("Location: " . url_for($controller, $action, $url_params));
     exit;
 }
