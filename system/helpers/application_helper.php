@@ -5,6 +5,15 @@ function cms_content() {
     include "system/sites/shared/cms_content.php";
 }
 
+function contact_form() {
+    check_contact_form();
+    include "system/sites/shared/contact.php";
+}
+
+function check_contact_form() {
+    
+}
+
 function valid_email($email) {
     if (preg_match("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/", $email)) {
         //list($username,$domain)=split('@',$email);
