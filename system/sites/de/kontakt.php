@@ -1,10 +1,17 @@
 <h1>Kontakt</h1>
 
-Victor Adzikah,
-Birmensdorferstrasse 301
-8055 Zürich.
-Tel:078 892 63 60
-e-mail:vicannan@vmtraining.ch
+<div>
+    Victor Adzikah<br/>
+    Birmensdorferstrasse 301<br/>
+    8055 Zürich<br/>
+    Tel:078 892 63 60<br/>
+    Email:vicannan@vmtraining.ch<br/>
+</div>
 
-Michael Vuilléme
-.... (ihr habt die Adresse glaube ich schon)
+<div>
+    Michael Vuilléme<br/>
+    ???<br/>
+    ???<br/>
+    ???<br/>
+    Email:mitch@vmtraining.ch<br/>
+</div>
