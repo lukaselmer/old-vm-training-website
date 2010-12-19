@@ -31,7 +31,7 @@
             <div class="base-inner">
                 <div class="header">
                     <div class="header-top">
-                        <div class="language-selection"><a href="#">Deutsch</a> | <a href="#">English</a></div>
+                        <div class="language-selection"><a href="/?ln=de">Deutsch</a> | <a href="/?ln=en">English</a></div>
                     </div>
                     <div class="navi-outer"><div class="navi"><ul class="navi-ul">
                                 <? navi_link("Home", 'home') ?>
@@ -39,7 +39,7 @@
                                 <? navi_link($_REQUEST['ln'] == 'de' ? "Angebot" : "Offer", 'angebot') ?>
                                 <? navi_link("Location", 'location') ?>
                                 <? navi_link($_REQUEST['ln'] == 'de' ? "Refernzen" : "References", 'referenzen') ?>
-                                <? navi_link($_REQUEST['ln'] == 'de' ? "Kontakt": "Contact", 'kontakt') ?>
+                                <? navi_link($_REQUEST['ln'] == 'de' ? "Kontakt" : "Contact", 'kontakt') ?>
                             </ul>
                             <? clearer(); ?>
                             </div>
