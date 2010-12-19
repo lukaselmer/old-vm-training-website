@@ -1,1 +1,5 @@
-<? include 'system/lib/load.php'; ?>
+<?
+
+include 'system/lib/load.php';
+
+?>

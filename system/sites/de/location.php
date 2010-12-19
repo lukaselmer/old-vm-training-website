@@ -1,8 +1,2 @@
-<h1>Location</h1>
-
-<ul>
-    <li>Fitness Center</li>
-    <li>Outdoor</li>
-    <li>Bei Ihnen zu Hause</li>
-    <li>Einfach dort, wo Sie sich wohl fühlen.</li>
-</ul>
+<h1><? echo $cms_content->title ?></h1>
+<? echo $cms_content->content ?>

@@ -1,3 +1,2 @@
-<h1>References</h1>
-
-???
+<h1><? echo $cms_content->title ?></h1>
+<? echo $cms_content->content ?>

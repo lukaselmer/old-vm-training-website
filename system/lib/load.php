@@ -8,6 +8,10 @@
 #include_all_once('./models/*.php');
 #include 'models/db.php';
 #include 'rss_parser/FeedForAll_XMLParser.inc.php';
-include 'request.php';
+
+
+require 'config.php';
+require 'connect_db.php';
+require 'request.php';
 
 ?>

@@ -12,6 +12,17 @@ $action_name = str_replace(",", "", $action_name);
 $_REQUEST['action'] = $action_name;
 $_REQUEST['ln'] = ($_REQUEST['ln'] == 'en' ? 'en' : ($_REQUEST['ln'] == 'de' ? 'de' : (substr($_SERVER["HTTP_ACCEPT_LANGUAGE"], 0, 2) == 'en' ? 'en' : 'de')));
 include('system/helpers/application_helper.php');
+include('system/controllers/application_controller.php');
+include('system/lib/models/db.php');
+
+if ($_REQUEST['controller'] == 'admin') {
+    include('system/controllers/admin_controller.php');
+    $controller = new AdminController();
+    $controller->$$action_name;
+}else{
+    global $DB;
+    $cms_content = $DB->select_by_attribute("cms_content", "cms_key", $action_name . "_" . $_REQUEST['ln']);
+}
 
 ob_start();
 $template_name = 'system/sites/' . $_REQUEST['ln'] . '/' . $action_name . '.php';
