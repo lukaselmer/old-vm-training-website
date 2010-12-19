@@ -21,10 +21,9 @@ p {margin: 8px 0 8px 0;}
 h1{font-size: 1.55em;}
 h2{font-size: 1.45em;}
 h3{font-size: 1.3em;}
-h1, h2, h3{
-    margin: 0;
-    padding: 10px 0 10px 0;
+h1, h2, h3{ margin: 0; padding: 12px 0 10px 0;
 }
+ul{margin: 4px 0 14px 0; padding-left: 28px;}
 
 label {
     display: block;
