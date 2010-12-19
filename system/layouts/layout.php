@@ -40,6 +40,7 @@
                                 <? navi_link("Location", 'location') ?>
                                 <? navi_link($_REQUEST['ln'] == 'de' ? "Refernzen" : "References", 'referenzen') ?>
                                 <? navi_link($_REQUEST['ln'] == 'de' ? "Kontakt" : "Contact", 'kontakt') ?>
+                                <? navi_link($_REQUEST['ln'] == 'de' ? "Preise" : "Price", 'preise') ?>
                             </ul>
                             <? clearer(); ?>
                             </div>

@@ -1,4 +1,4 @@
-<? $title = "bla"; ?>
+<? $title = "contact"; ?>
 test
 test
 test
