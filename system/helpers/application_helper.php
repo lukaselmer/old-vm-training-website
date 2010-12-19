@@ -11,7 +11,47 @@ function contact_form() {
 }
 
 function check_contact_form() {
-    
+    if ($_REQUEST['send'] == "1") { //If form filled out...
+        $_REQUEST['error'] = "";
+        $fields = Array('first_name', 'last_name', 'street', 'place', 'email', 'phone', 'subject', 'training_wishes', 'remarks');
+        foreach ($fields as $f) {
+            $$f = $_REQUEST[$f];
+        }
+        echo $first_name;
+
+        $name = $_REQUEST['name'];
+        $email = $_REQUEST['email'];
+        $subject = $_REQUEST['subject'];
+        $message = $_REQUEST['message'];
+        //check form imput
+        if (strlen($first_name) == 0) {
+            $_REQUEST['error'] = "Bitte geben Sie einen Vornamen an.";
+            return;
+        }
+        if (strlen($last_name) == 0) {
+            $_REQUEST['error'] = "Bitte geben Sie einen Nachnamen an.";
+            return;
+        }
+        if (strlen($phone) < 10 && !valid_email($email)) {
+            $_REQUEST['error'] = "Bitte geben Sie eine gültige Email Adresse oder eine gültige Telefonnummer an.";
+            return;
+        }
+        
+        $email_body = "";
+        foreach ($fields as $f) {
+            $email_body .= $f . ": " . $$f . "\n";
+        }
+        $email_body .= "Datum / Zeit: " . date("d.m.Y H:i");
+
+        try {
+            if (!@mail('lukas.elmer@gmail.com', "Kontaktformular VM Training", $email_body)) {
+                $_REQUEST['error'] = "Email konnte nicht gesendet werden.";
+            }
+        } catch (Exception $e) {
+            $_REQUEST['error'] = "Email konnte nicht gesendet werden: $e";
+        }
+        $_REQUEST['send_success'] = true;
+    }
 }
 
 function valid_email($email) {
