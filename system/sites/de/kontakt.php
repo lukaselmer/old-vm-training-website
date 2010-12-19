@@ -1,4 +1,4 @@
-<? $title = "Kontakt"; ?>
+<h1>Kontakt</h1>
 
 Victor Adzikah,
 Birmensdorferstrasse 301

@@ -1,4 +1,4 @@
-<? $title = "bla"; ?>
+<h1>References</h1>
 test
 test
 test

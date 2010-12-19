@@ -48,9 +48,8 @@
                     </div>
                     <div class="main-content">
                         <div class="main-content-inner">
-                        <? global $title, $content; ?>
+                        <? global $content; ?>
                         <? clearer(); ?>
-                                <div><h1><? echo $title; ?></h1></div>
                                 <div><? echo $content; ?></div>
                     </div>
                 </div>

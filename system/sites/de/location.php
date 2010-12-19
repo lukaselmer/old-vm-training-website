@@ -1,4 +1,4 @@
-<? $title = "Location"; ?>
+<h1>Location</h1>
 
 <ul>
     <li>Fitness Center</li>

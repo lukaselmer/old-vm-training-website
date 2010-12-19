@@ -1,4 +1,4 @@
-<? $title = "Über Uns"; ?>
+<h1>Über Uns</h1>
 
 <div>
     <div>Name: Victor Adzikah</div>

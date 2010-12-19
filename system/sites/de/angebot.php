@@ -1,4 +1,4 @@
-<? $title = "Angebot"; ?>
+<h1>Angebot</h1>
 
 <ul>
     <li>Kraftraining</li>
