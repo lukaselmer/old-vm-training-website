@@ -36,7 +36,8 @@ function check_contact_form() {
             $_REQUEST['error'] = "Bitte geben Sie eine gültige Email Adresse oder eine gültige Telefonnummer an.";
             return;
         }
-        
+
+        $_REQUEST['send_success'] = true;
         $email_body = "";
         foreach ($fields as $f) {
             $email_body .= $f . ": " . $$f . "\n";
@@ -44,13 +45,14 @@ function check_contact_form() {
         $email_body .= "Datum / Zeit: " . date("d.m.Y H:i");
 
         try {
-            if (!@mail('lukas.elmer@gmail.com', "Kontaktformular VM Training", $email_body)) {
+            if (!@mail('lukas.elmer@gmail.com, admin@elmermx.ch', "Kontaktformular VM Training", $email_body)) {
                 $_REQUEST['error'] = "Email konnte nicht gesendet werden.";
+                $_REQUEST['send_success'] = false;
             }
         } catch (Exception $e) {
             $_REQUEST['error'] = "Email konnte nicht gesendet werden: $e";
+            $_REQUEST['send_success'] = false;
         }
-        $_REQUEST['send_success'] = true;
     }
 }
 
