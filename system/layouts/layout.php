@@ -38,7 +38,7 @@
                                 <? navi_link($_REQUEST['ln'] == 'de' ? "Über Uns" : "About Us", 'ueber_uns') ?>
                                 <? navi_link($_REQUEST['ln'] == 'de' ? "Angebot" : "Offer", 'angebot') ?>
                                 <? navi_link("Location", 'location') ?>
-                                <? navi_link($_REQUEST['ln'] == 'de' ? "Refernzen" : "References", 'refernzen') ?>
+                                <? navi_link($_REQUEST['ln'] == 'de' ? "Refernzen" : "References", 'referenzen') ?>
                                 <? navi_link($_REQUEST['ln'] == 'de' ? "Kontakt": "Contact", 'kontakt') ?>
                             </ul>
                             <? clearer(); ?>
