@@ -155,10 +155,12 @@ label {
 
 .footer {
     min-width: 1024px;
-    height: 98px;
+    height: 85px;
     background: url(/public/images/footer.png);
     background-position: center;
-    background-repeat: repeat-x;
+    /*background-repeat: repeat-x;
+    height: 98px;*/
+    background-repeat: no-repeat;
     text-align: center;
     margin-bottom: 25px;
 }
@@ -170,10 +172,12 @@ label {
 }
 .footer .inner .inner2 {
     padding: 67px 72px 0 16px;
+    padding: 31px 72px 0 16px;
     text-align:right;
 }
 .footer .inner .inner2, .footer .inner .inner2 a {
     color: #fff;
+    color: #333;
 }
 
 /*.footer {
