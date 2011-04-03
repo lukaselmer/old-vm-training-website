@@ -11,6 +11,7 @@ function contact_form() {
 }
 
 function check_contact_form() {
+    $ln = $_REQUEST['ln'];
     if ($_REQUEST['send'] == "1") { //If form filled out...
         $_REQUEST['error'] = "";
         $fields = Array('first_name', 'last_name', 'street', 'place', 'email', 'phone', 'subject', 'training_wishes', 'remarks');
@@ -20,15 +21,15 @@ function check_contact_form() {
 
         //check form imput
         if (strlen($first_name) == 0) {
-            $_REQUEST['error'] = $ln == 'de' ? "Bitte geben Sie einen Vornamen an." : "Please enter your first name.";
+            $_REQUEST['error'] = ($ln == 'de' ? "Bitte geben Sie einen Vornamen an." : "Please enter your first name.");
             return;
         }
         if (strlen($last_name) == 0) {
-            $_REQUEST['error'] = $ln == 'de' ? "Bitte geben Sie einen Nachnamen an." : "Please enter your last name.";
+            $_REQUEST['error'] = ($ln == 'de' ? "Bitte geben Sie einen Nachnamen an." : "Please enter your last name.");
             return;
         }
         if (strlen($phone) < 10 && !valid_email($email)) {
-            $_REQUEST['error'] = $ln == 'de' ? "Bitte geben Sie eine gültige Email Adresse oder eine gültige Telefonnummer an." : "Please enter a valid email address or a valid phone number";
+            $_REQUEST['error'] = ($ln == 'de' ? "Bitte geben Sie eine gültige Email Adresse oder eine gültige Telefonnummer an." : "Please enter a valid email address or a valid phone number");
             return;
         }
 
@@ -37,15 +38,16 @@ function check_contact_form() {
         foreach ($fields as $f) {
             $email_body .= $f . ": " . $$f . "\n";
         }
+        $email_body .= "language: " . $ln . "\n";
         $email_body .= "date / time: " . date("d.m.Y H:i");
 
         try {
             if (!@mail('lukas.elmer@gmail.com, mitch@vmtraining.ch, vicannan@vmtraining.ch', "Kontaktformular VM Training", $email_body)) {
-                $_REQUEST['error'] = $ln == 'de' ? "Email konnte nicht gesendet werden." : "Email could not have been sent.";
+                $_REQUEST['error'] = ($ln == 'de' ? "Email konnte nicht gesendet werden." : "Email could not have been sent.");
                 $_REQUEST['send_success'] = false;
             }
         } catch (Exception $e) {
-            $_REQUEST['error'] = $ln == 'de' ? "Email konnte nicht gesendet werden." : "Email could not have been sent.";
+            $_REQUEST['error'] = ($ln == 'de' ? "Email konnte nicht gesendet werden." : "Email could not have been sent.");
             $_REQUEST['send_success'] = false;
         }
     }

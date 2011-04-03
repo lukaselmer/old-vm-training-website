@@ -3,7 +3,7 @@
 
 <?
 if ($_REQUEST['send_success']) {
-    echo "<p><i><b>Nachricht wurde erfolgreich gesendet.</b></i></p>";
+    echo "<p><i><b>" . ($ln == 'de' ? "Nachricht wurde erfolgreich gesendet" : "Message sent sucessfully") . ".</b></i></p>";
 } else {
     if ($_REQUEST['error']) {
         echo "<p><i><b>" . $_REQUEST['error'] . "</b></i></p>";
