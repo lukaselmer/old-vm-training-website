@@ -38,13 +38,14 @@ class AdminController extends ApplicationController {
         }
         $this->cms_content = $this->DB->select_by_attribute("cms_content", "cms_key", $key);
         $this->DB->query("UPDATE `cms_content` SET
-`content` = \"" . $params['content'] . "\"
-WHERE `id` = " . $this->cms_content->id . " LIMIT 1 ;
-");
-        if($_REQUEST['redirect_to_action'] != ""){
+        `content` = \"" . $params['content'] . "\",
+        `title` = \"" . $params['title'] . "\"
+        WHERE `id` = " . $this->cms_content->id . " LIMIT 1 ;
+        ");
+        if ($_REQUEST['redirect_to_action'] != "") {
             redirect_to("home", $_REQUEST['redirect_to_action']);
         }
-        redirect_to('admin');
+        //redirect_to('admin');
     }
 
     function edit_cms_content() {
