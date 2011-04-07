@@ -6,7 +6,7 @@
         <legend>Inhalt bearbeiten</legend>
         <p>
             <label for="cms_content[title]">Titel</label>
-            <input type="text" id="cms_content[title]" name="cms_content[content]" value="<? echo $cms_content->title; ?>" />
+            <input type="text" id="cms_content[title]" name="cms_content[title]" value="<? echo $cms_content->title; ?>" />
         </p>
         <p>
             <label for="cms_content[content]">Inhalt</label>

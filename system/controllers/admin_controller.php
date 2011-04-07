@@ -36,7 +36,9 @@ class AdminController extends ApplicationController {
         foreach ($params as $i => $param) {
             $params[$i] = str_replace('"', '&quot;', $param);
         }
+
         $this->cms_content = $this->DB->select_by_attribute("cms_content", "cms_key", $key);
+
         $this->DB->query("UPDATE `cms_content` SET
         `content` = \"" . $params['content'] . "\",
         `title` = \"" . $params['title'] . "\"
@@ -45,7 +47,7 @@ class AdminController extends ApplicationController {
         if ($_REQUEST['redirect_to_action'] != "") {
             redirect_to("home", $_REQUEST['redirect_to_action']);
         }
-        //redirect_to('admin');
+        redirect_to('admin');
     }
 
     function edit_cms_content() {
